@@ -1,0 +1,135 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  walletAddress String @unique
+  username  String?
+  email     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  projects  Project[]
+  favorites ProjectFavorite[]
+  
+  @@map("users")
+}
+
+model Project {
+  id                String   @id @default(cuid())
+  name              String
+  symbol            String
+  description       String   @db.Text
+  website           String?
+  twitter           String?
+  telegram          String?
+  discord           String?
+  github            String?
+  
+  // Token Information
+  tokenAddress      String   @unique
+  tokenMint         String   @unique
+  tokenDecimals     Int      @default(9)
+  tokenSupply       String?
+  
+  // Launch Information
+  launchDate        DateTime?
+  launchPrice       String?
+  currentPrice      String?
+  
+  // Status
+  status            ProjectStatus @default(PENDING)
+  rejectionReason   String?
+  
+  // Metrics
+  views             Int      @default(0)
+  favorites         Int      @default(0)
+  swapVolume        String   @default("0")
+  liquidity         String   @default("0")
+  holders           Int      @default(0)
+  
+  // Metadata
+  logoUrl           String?
+  bannerUrl         String?
+  tags              String[] // Array of tags
+  
+  // Relations
+  submittedBy       String
+  user             User     @relation(fields: [submittedBy], references: [id])
+  
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  approvedAt        DateTime?
+  approvedBy        String?
+  
+  favoritesRelation ProjectFavorite[]
+  metrics           ProjectMetric[]
+  
+  @@index([status])
+  @@index([tokenMint])
+  @@index([createdAt])
+  @@map("projects")
+}
+
+enum ProjectStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  FEATURED
+  ARCHIVED
+}
+
+model ProjectFavorite {
+  id        String   @id @default(cuid())
+  userId    String
+  projectId String
+  createdAt DateTime @default(now())
+  
+  user      User     @relation(fields: [userId], references: [id])
+  project   Project  @relation(fields: [projectId], references: [id])
+  
+  @@unique([userId, projectId])
+  @@map("project_favorites")
+}
+
+model ProjectMetric {
+  id        String   @id @default(cuid())
+  projectId String
+  date      DateTime @default(now())
+  
+  // Metrics
+  swapVolume String  @default("0")
+  liquidity  String  @default("0")
+  holders    Int     @default(0)
+  price      String?
+  
+  project    Project @relation(fields: [projectId], references: [id])
+  
+  @@index([projectId, date])
+  @@map("project_metrics")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  walletAddress String @unique
+  role      AdminRole @default(MODERATOR)
+  createdAt DateTime @default(now())
+  
+  @@map("admins")
+}
+
+enum AdminRole {
+  MODERATOR
+  ADMIN
+  SUPER_ADMIN
+}
+
